@@ -49,7 +49,8 @@ function getSCinfo(song){
   var scUrl = 'https://soundcloud.com/oembed.json?maxheight=200&url='+uri;
   $.get(scUrl, function(data){
     // Populate the data onto the web-page
-    $("#thumbnail").prop("src", data.thumbnail_url);
+    var thumb_https = data.thumbnail_url.replace(/^http:\/\//i, 'https://');
+    $("#thumbnail").prop("src", thumb_https);
     $("#song_title").html('<i class="fa fa-music" aria-hidden="true"></i> ' + data.title);
     $("#song_artist").html('<i class="fa fa-user" aria-hidden="true"></i> ' + data.author_name);
   })
