@@ -1,4 +1,4 @@
-# SoundCloud Web Player
+# SoundCloud Web Player ([check it out](https://shahzeb1.github.io/soundcloud-player/))
 
 ![Screenshot Image](Screenshot.png)
 
