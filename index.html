@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SoundCloud API Streaming Demo</title>
+    <script type="text/javascript" src="https://w.soundcloud.com/player/api.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="mySC.js"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Font Awesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel='stylesheet' href='style.css'/>
+  </head>
+  <body>
+    <div class='container'>
+      <div class='rows'>
+        <div class='col-md-6'>
+          <img src='' id='thumbnail' alt='Loading image'/><br>
+        </div>
+        <div class='col-md-6'>
+          <h2 id="song_title">Loading Song...<h2>
+          <h3 id='song_artist'>Loading Artist...</h3><br>
+          <button class="btn btn-default" id='play'><i class="fa fa-play" aria-hidden="true"></i></button>
+          <button class="btn btn-default" id='pause'><i class="fa fa-pause" aria-hidden="true"></i></button>
+          <button class="btn btn-default" id='newSong'><i class="fa fa-soundcloud" aria-hidden="true"></i></button>
+        </div>
+      </div>
+    </div>
+    <div id='player'>
+      <iframe id="so" width="100%" height="160" scrolling="no" frameborder="0">Loading</iframe>
+    </div>
+  </body>
+</html>

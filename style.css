@@ -1,0 +1,38 @@
+.container{
+  padding-top: 50px;
+}
+
+#thumbnail{
+  width: 400px;
+  margin-top: 28px;
+}
+
+.btn{
+  text-align: center;
+  height: 50px;
+  width: 100%;
+  margin: 20px;
+}
+
+#play{
+  background: #FF8700;
+}
+
+#pause{
+  background: #FFB200;
+}
+
+iframe{
+  opacity: 0;
+  position: absolute;
+  right: -50px;
+}
+
+#player{
+  overflow: hidden;
+  position: relative;
+}
+
+#thumbnail{
+  width: 350px;
+}
