@@ -6,6 +6,9 @@ $(document).ready(function() {
   getSCinfo(song);
   var player = SC.Widget("so");
 
+  // Set the song link as the external link
+  $("#sc_link").attr("href", song);
+
   // Play button pressed
   $("#play").click(function() {
     player.play();
