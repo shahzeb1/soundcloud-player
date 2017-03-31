@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
   // Queue up a SoundCloud song to play via the song url
-  var song = 'https://soundcloud.com/hxns/chill-with-me';
+  var song = 'https://soundcloud.com/chancetherapper/acid-rain-1';
   playSC(song, false); // false = don't autoPlay, true = autoPlay
   getSCinfo(song);
   var player = SC.Widget("so");
