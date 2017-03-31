@@ -26,6 +26,11 @@ $(document).ready(function() {
   });
 })
 
+/**
+  Plays a SoundCloud song by replaceing the iFrame #so on the page.
+  @param {string} song - The song URL from soundcloud.com/...
+  @param {bool} autoPlay - Should it autoplay the song after loading it.
+*/
 function playSC(song, autoPlay){
   // Set up URL
   var uri = encodeURIComponent(song);
@@ -43,6 +48,11 @@ function playSC(song, autoPlay){
   });
 }
 
+/**
+  Get the SoundCloud informatin for a given track,
+  and replace elemnts on the page with the info.
+  @param {string} song - The song URL from soundcloud.com/...
+*/
 function getSCinfo(song){
   // Get SC song info from oembed.js
   var uri = encodeURIComponent(song);
