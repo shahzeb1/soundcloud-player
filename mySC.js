@@ -25,6 +25,7 @@ $(document).ready(function() {
     if(url !== null){
       playSC(url, true);
       getSCinfo(url);
+      $("#sc_link").attr("href", url);
     }
   });
 })
