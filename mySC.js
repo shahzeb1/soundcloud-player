@@ -22,7 +22,8 @@ $(document).ready(function() {
   // New SoundCloud URL requested via prompt()
   $("#newSong").click(function() {
     var url = prompt("Enter in a new SoundCloud URL:");
-    if(url !== null){
+    var scMatch = url.match(/^https:\/\/soundcloud\.com\/[a-z1-9\/-]*/);
+    if(url !== null && scMatch !== null){
       playSC(url, true);
       getSCinfo(url);
       $("#sc_link").attr("href", url);
