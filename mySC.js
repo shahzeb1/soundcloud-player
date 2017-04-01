@@ -27,6 +27,8 @@ $(document).ready(function() {
       playSC(url, true);
       getSCinfo(url);
       $("#sc_link").attr("href", url);
+    }else{
+      alert("Enter in a valid http://soundcloud.com/ link.")
     }
   });
 })
