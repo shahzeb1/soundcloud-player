@@ -19,6 +19,20 @@ $(document).ready(function() {
     player.pause();
   });
 
+  // Spacebar is pressed, pause or play song
+  document.body.onkeyup = function(e){
+    if(e.keyCode == 32){
+      var player = SC.Widget("so");
+      player.isPaused(function(pause){
+        if(pause){
+          player.play();
+        }else{
+          player.pause();
+        }
+      });
+    }
+  }
+
   // New SoundCloud URL requested via prompt()
   $("#newSong").click(function() {
     var url = prompt("Enter in a new SoundCloud URL:");
