@@ -63,8 +63,10 @@ function getSCinfo(song){
   $.get(scUrl, function(data){
     // Populate the data onto the web-page
     var thumb_https = data.thumbnail_url.replace(/^http:\/\//i, 'https://');
+    var title_only = data.title.split("by");
+    var name_no_quotes = data.author_name.split('"');
     $("#thumbnail").prop("src", thumb_https);
-    $("#song_title").html('<i class="fa fa-music" aria-hidden="true"></i> ' + data.title);
-    $("#song_artist").html('<i class="fa fa-user" aria-hidden="true"></i> ' + data.author_name);
+    $("#song_title").html('<i class="fa fa-music" aria-hidden="true"></i> ' + title_only[0]);
+    $("#song_artist").html('<i class="fa fa-user" aria-hidden="true"></i> ' + name_no_quotes[1]);
   })
 }
