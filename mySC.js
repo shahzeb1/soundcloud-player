@@ -12,11 +12,13 @@ $(document).ready(function() {
   // Play button pressed
   $("#play").click(function() {
     player.play();
+    toggleButtons('play');
   });
 
   // Pause button pressed
   $("#pause").click(function() {
     player.pause();
+    toggleButtons('pause');
   });
 
   // Spacebar is pressed, pause or play song
@@ -26,8 +28,10 @@ $(document).ready(function() {
       player.isPaused(function(pause){
         if(pause){
           player.play();
+          toggleButtons('play');
         }else{
           player.pause();
+          toggleButtons('pause');
         }
       });
     }
@@ -64,6 +68,7 @@ function playSC(song, autoPlay){
         if(autoPlay === true){
           var player = SC.Widget("so");
           player.play();
+          toggleButtons('play');
         }
       }, 1000);
   });
@@ -86,4 +91,19 @@ function getSCinfo(song){
     $("#song_title").html('<i class="fa fa-music" aria-hidden="true"></i> ' + title_only[0]);
     $("#song_artist").html('<i class="fa fa-user" aria-hidden="true"></i> ' + data.author_name);
   })
+}
+
+/**
+ * Show and hide play/pause button depending
+ * on whether the song is running or not.
+ * @param {string} status - State of the song
+ */
+function toggleButtons(status) {
+  if (status === 'play') {
+    $("#play").hide();
+    $("#pause").show();
+  } else {
+    $("#play").show();
+    $("#pause").hide();
+  }
 }

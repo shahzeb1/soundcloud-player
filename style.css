@@ -20,6 +20,7 @@
 
 #pause{
   background: #FFB200;
+  display: none;
 }
 
 iframe{
