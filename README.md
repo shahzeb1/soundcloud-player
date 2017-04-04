@@ -9,3 +9,9 @@ A proof of concept SoundCloud player which uses public API's (no developer accou
 **Running Example**: [shahzeb1.github.io/soundcloud-player](https://shahzeb1.github.io/soundcloud-player/)
 
 Take a look in [SC.js](https://github.com/shahzeb1/soundcloud-player/blob/master/mySC.js) for the true magic.
+
+### Used:
+Current being used in [@R3l4x3](https://github.com/)'s Vue.js based [soundcloud-webplayer](https://github.com/R3l4x3/soundcloud-webplayer).
+
+### License:
+MIT.
