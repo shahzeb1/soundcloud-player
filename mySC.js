@@ -40,7 +40,7 @@ $(document).ready(function() {
   // New SoundCloud URL requested via prompt()
   $("#newSong").click(function() {
     var url = prompt("Enter in a new SoundCloud URL:");
-    var scMatch = url.match(/^https:\/\/soundcloud\.com\/[a-z1-9\/-]*/);
+    var scMatch = url.match(/^https:\/\/soundcloud\.com\/[a-z1-9-]*\/[a-z1-9-]*\/?$/);
     if(url !== null && scMatch !== null){
       playSC(url, true);
       getSCinfo(url);
