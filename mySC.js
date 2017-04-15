@@ -58,6 +58,21 @@ $(document).ready(function() {
       alert("Enter in a valid http://soundcloud.com/ link.")
     }
   });
+
+  $("#smallThumb1").click(function() {
+    playSC(song2, true);
+    getSCinfo(song2, 'thumbnail', true, true);
+  });
+
+  $("#smallThumb2").click(function() {
+    playSC(song3, true);
+    getSCinfo(song3, 'thumbnail', true, true);
+  });
+
+  $("#smallThumb3").click(function() {
+    playSC(song4, true);
+    getSCinfo(song4, 'thumbnail', true, true);
+  });
 })
 
 /**
