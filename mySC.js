@@ -90,6 +90,10 @@ function getSCinfo(song){
     $("#thumbnail").prop("src", thumb_https);
     $("#song_title").html('<i class="fa fa-music" aria-hidden="true"></i> ' + title_only[0]);
     $("#song_artist").html('<i class="fa fa-user" aria-hidden="true"></i> ' + data.author_name);
+
+    $("#smallThumb1").prop("src", thumb_https);
+    $("#smallThumb2").prop("src", thumb_https);
+    $("#smallThumb3").prop("src", thumb_https);
   })
 }
 
