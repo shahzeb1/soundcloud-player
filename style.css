@@ -7,7 +7,8 @@
 }
 
 #thumbnail{
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
   margin-top: 28px;
 }
 
@@ -16,6 +17,7 @@
   height: 50px;
   width: 100%;
   margin: 20px;
+  cursor: pointer;
 }
 
 #play{
@@ -40,6 +42,7 @@ iframe{
 
 .smallThumbnail{
   width: 100%;
+  cursor: pointer;
 }
 
 #extraArtRow{

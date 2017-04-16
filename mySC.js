@@ -1,22 +1,34 @@
 $(document).ready(function() {
 
   // Queue up a SoundCloud song to play via the song url
-  var song1 = 'https://soundcloud.com/chancetherapper/acid-rain-1';
-  var song2 = 'https://soundcloud.com/hxns/precious';
-  var song3 = 'https://soundcloud.com/morguemami/limelight-prod-xauve';
-  var song4 = 'https://soundcloud.com/joshpanii/usedii';
+  var songs = ['https://soundcloud.com/chancetherapper/acid-rain-1',
+               'https://soundcloud.com/hxns/precious',
+               'https://soundcloud.com/morguemami/limelight-prod-xauve',
+               'https://soundcloud.com/joshpanii/usedii'];
 
-  playSC(song1, false); // false = don't autoPlay, true = autoPlay
+  playSC(songs[0], false); // false = don't autoPlay, true = autoPlay
+  getSCinfo(songs[0], 'thumbnail', true, true);
 
-  getSCinfo(song1, 'thumbnail', true, true);
-  getSCinfo(song2, 'smallThumb1');
-  getSCinfo(song3, 'smallThumb2');
-  getSCinfo(song4, 'smallThumb3');
+  for (i = 1; i < songs.length; i++) {
+    getSCinfo(songs[i], 'smallThumb' + i);    
+    
+    //Set up click listeners for extra songs
+    (function(i) {
+      $("#smallThumb" + i).click(function(){
+        playSC(songs[i], true);
+        getSCinfo(songs[i], 'thumbnail', true, true);
+
+        // Set the song link as the external link
+        $("#sc_link").attr("href", songs[i]);
+      });        
+      
+    })(i);
+  }
 
   var player = SC.Widget("so");
 
   // Set the song link as the external link
-  $("#sc_link").attr("href", song1);
+  $("#sc_link").attr("href", songs[0]);
 
   // Play button pressed
   $("#play").click(function() {
@@ -57,21 +69,6 @@ $(document).ready(function() {
     }else{
       alert("Enter in a valid http://soundcloud.com/ link.")
     }
-  });
-
-  $("#smallThumb1").click(function() {
-    playSC(song2, true);
-    getSCinfo(song2, 'thumbnail', true, true);
-  });
-
-  $("#smallThumb2").click(function() {
-    playSC(song3, true);
-    getSCinfo(song3, 'thumbnail', true, true);
-  });
-
-  $("#smallThumb3").click(function() {
-    playSC(song4, true);
-    getSCinfo(song4, 'thumbnail', true, true);
   });
 })
 
