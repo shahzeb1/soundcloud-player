@@ -2,6 +2,10 @@
   padding-top: 50px;
 }
 
+.extra-art-container{
+  text-align: center;
+}
+
 #thumbnail{
   width: 400px;
   margin-top: 28px;
@@ -34,6 +38,10 @@ iframe{
   position: relative;
 }
 
-#thumbnail{
-  width: 350px;
+.smallThumbnail{
+  width: 100%;
+}
+
+#extraArtRow{
+  margin: 0px 20px;
 }
