@@ -1,4 +1,20 @@
-(function () {
+(function (root,factory) {
+    if ( typeof define === 'function' && define.amd) {
+        // AMD. Register as an anonymous module.
+        define (['exports'], factory);
+    } else if ( typeof module === 'object' && module.exports) {
+        // Node. Does not work with strict CommonJS, but
+        // only CommonJS-like environments that support module.exports,
+        // like Node.
+        factory(exports, true);
+    } else if ( typeof exports === 'object' && typeof exports. nodeName !== 'string' ) {
+        // CommonJS
+        factory(exports, false);
+    } else {
+        // Browser globals (root is window)
+       factory(root, false);
+    }
+})( this , function (exports, isNode) {
 /**
   Loads song from SoundCloud by replacing the iFrame #so on the page and optionally autoplays it.
   @param {string} song - The song URL from soundcloud.com/...
@@ -73,15 +89,6 @@ var SCPlayer = {
     "pause": pause,
     "toggleIsPlaying": toggleIsPlaying
 };
-// Detects AMD-compatible loaders and Node.js environments
-if (module && module.exports) {
-    module.exports = SCPlayer;
-}
-else if (module && exports) { // CommonJS
-    exports.SCPlayer = SCPlayer;
-}
-else {
-   window.SCPlayer = SCPlayer; // ES6: export SCPlayer;
-}
-})();
-    
+if (isNode) exports = SCPlayer;
+else exports.SCPlayer = SCPlayer;
+});
