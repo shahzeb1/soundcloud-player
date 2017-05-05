@@ -1,50 +1,140 @@
-.container{
-  padding-top: 50px;
+body {
+    background-image: url('https://www.toptal.com/designers/subtlepatterns/patterns/circles-and-roundabouts.png');
 }
 
-.extra-art-container{
-  text-align: center;
+.container {
+    margin-top: 5em;
 }
 
-#thumbnail{
-  width: 100%;
-  max-width: 400px;
-  margin-top: 28px;
+.card {
+    box-shadow: 0 4px 19px 1px #777;
+    display: inline-block;
+    width: 60%;
 }
 
-.btn{
-  text-align: center;
-  height: 50px;
-  width: 100%;
-  margin: 20px;
-  cursor: pointer;
+#thumbnail {
+    width: 100%;
+    max-width: 400px;
 }
 
-#play{
-  background: #FF8700;
+#sc_link {
+    margin: 10px 0 5px 15%;
 }
 
-#pause{
-  background: #FFB200;
-  display: none;
+#play,
+#pause,
+#newSong {
+    cursor: pointer;
 }
 
-iframe{
-  opacity: 0;
-  position: absolute;
-  right: -50px;
+#play,
+#pause {
+    position: absolute;
+    top: 0;
+    opacity: 0.8;
 }
 
-#player{
-  overflow: hidden;
-  position: relative;
+#play {
+    background: #FF8700;
 }
 
-.smallThumbnail{
-  width: 100%;
-  cursor: pointer;
+#pause {
+    background: #FFB200;
+    display: none;
 }
 
-#extraArtRow{
-  margin: 0px 20px;
+#newSong {
+    width: 100%;
+}
+
+iframe {
+    opacity: 0;
+    position: absolute;
+    right: -99999px;
+}
+
+#player {
+    overflow: hidden;
+    position: relative;
+}
+
+#extraArtRow {
+    display: inline-block;
+}
+
+.smallThumbnail {
+    width: 33.33333333%;
+    cursor: pointer;
+    margin: 5px;
+}
+
+#suggestions {
+    margin-bottom: 1em;
+}
+
+@media screen and (max-width:392px) {
+    .xs-hide {
+        display: none;
+    }
+    #sc_link {
+        margin: 1em 36% 0.5em;
+    }
+    .card {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:767px) {
+    #suggestions {
+        padding-top: 1em;
+    }
+}
+
+@media screen and (min-width:393px) and (max-width:767px) {
+    .card {
+        margin: 2px 18.5%;
+    }
+}
+
+@media screen and (min-width:393px) and (max-width:484px) {
+    #sc_link {
+        margin: 1em 0;
+    }
+}
+
+@media screen and (min-width:768px) and (max-width:991px) {
+    .card {
+        width: 100%;
+    }
+}
+
+
+/*github Octocat animation*/
+
+.github-corner:hover .octo-arm {
+    animation: octocat-wave 560ms ease-in-out
+}
+
+@keyframes octocat-wave {
+    0%,
+    100% {
+        transform: rotate(0)
+    }
+    20%,
+    60% {
+        transform: rotate(-25deg)
+    }
+    40%,
+    80% {
+        transform: rotate(10deg)
+    }
+}
+
+@media (max-width:500px) {
+    .github-corner:hover .octo-arm {
+        animation: none
+    }
+    .github-corner .octo-arm {
+        animation: octocat-wave 560ms ease-in-out
+    }
 }
