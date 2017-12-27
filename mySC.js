@@ -8,10 +8,12 @@ $(document).ready(function() {
 
   playSC(songs[0], false); // false = don't autoPlay, true = autoPlay
   getSCinfo(songs[0], 'thumbnail', true, true);
+  songs = loadUserSongs(songs); //check for user songs
+  genContainers(songs); //generate playlist containers
 
   for (i = 1; i < songs.length; i++) {
-    getSCinfo(songs[i], 'smallThumb' + i);    
-    
+    getSCinfo(songs[i], 'smallThumb' + i);
+
     //Set up click listeners for extra songs
     (function(i) {
       $("#smallThumb" + i).click(function(){
@@ -20,8 +22,8 @@ $(document).ready(function() {
 
         // Set the song link as the external link
         $("#sc_link").attr("href", songs[i]);
-      });        
-      
+      });
+
     })(i);
   }
 
@@ -63,6 +65,7 @@ $(document).ready(function() {
     var url = prompt("Enter in a new SoundCloud URL:");
     var scMatch = url.match(/^https:\/\/soundcloud\.com\/[a-z1-9-]*\/[a-z1-9-]*\/?$/);
     if(url !== null && scMatch !== null){
+      saveUserSong(url, songs);
       playSC(url, true);
       getSCinfo(url, 'thumbnail', true, true);
       $("#sc_link").attr("href", url);
@@ -115,7 +118,7 @@ function getSCinfo(song, thumbId, setTitle, setArtist){
     if (setTitle) {
       $("#song_title").html('<i class="fa fa-music" aria-hidden="true"></i> ' + title_only[0]);
     }
-    
+
     if (setArtist) {
       $("#song_artist").html('<i class="fa fa-user" aria-hidden="true"></i> ' + data.author_name);
     }
@@ -134,5 +137,51 @@ function toggleButtons(status) {
   } else {
     $("#play").show();
     $("#pause").hide();
+  }
+}
+
+//Save user added song on submit to localStorage
+function saveUserSong(song, songlist) {
+  if (localStorage.soundCloudPlayerList) {
+    let userList = JSON.parse(localStorage.getItem("soundCloudPlayerList"));
+    userList.push(song);
+    localStorage.setItem("soundCloudPlayerList", JSON.stringify(userList));
+  } else {
+    localStorage.setItem("soundCloudPlayerList", JSON.stringify([song]));
+  }
+}
+
+//Load user added song on page load/refresh
+function loadUserSongs(songlist) {
+  if (localStorage.soundCloudPlayerList) {
+    let userList = JSON.parse(localStorage.soundCloudPlayerList);
+    return songlist.concat(userList);
+  }
+  return songlist;
+}
+
+//Create new playlist container
+function createNewListitem(index) {
+  let newImage = document.createElement("img");
+  newImage.src = "no-sc-artwork.png";
+  newImage.className = "smallThumbnail";
+  newImage.id = "smallThumb" + index;
+  newImage.alt = "Album artwork";
+
+  let newSong = document.createElement("div");
+  newSong.className = "col-md-4 extra-art-container";
+  newSong.appendChild(newImage);
+
+  $("#extraArtRow").append(newSong);
+}
+
+//Create additional containers on page load based on additional user songs
+function genContainers(songlist) {
+  var playlistItems = document.querySelector("#extraArtRow").childElementCount;
+  if(songlist.length - 1 > playlistItems) {
+    let j = (songlist.length - 1) - playlistItems;
+    for(i = 1; i <= j; i++) {
+      createNewListitem(playlistItems + i);
+    }
   }
 }
